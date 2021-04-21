@@ -11,21 +11,23 @@ const Form = () => {
     resetContent();
   };
   return (
-      <div className="form-section">
-          <form>
-              <h5>New Note</h5>
-              <div className="input-field">
-                  <input type="text" id="note_title" {...bindTitle}/>
-                  <label htmlFor="note_title">Note Title</label>
-              </div>
-              <div className="input-field">
-                  <textarea name="" id="note_content" cols="30" rows="10" {...bindContent}></textarea>
-                  <label htmlFor="note_content">Note Content</label>
-              </div>
-              <button className="btn">Add</button>
-          </form>
-      </div>
-  )
+    <div className='form-section'>
+      <form onSubmit={handleSubmit} className='main-form'>
+        <h5>New Note</h5>
+        <div className='input-field'>
+          <label htmlFor='note_title'>Note Title</label>
+          <input type='text' id='note_title' {...bindTitle} />
+        </div>
+        <div className='input-field'>
+          <label htmlFor='note_content'>Note Content</label>
+          <textarea name='' id='note_content' {...bindContent}></textarea>
+        </div>
+        <button className='btn' onClick={handleSubmit}>
+          Add
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default Form;
