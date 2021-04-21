@@ -1,19 +1,14 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <nav className='navbar'>
       <div className='navbar__container'>
-        <a href='#'>EtherNote</a>
+        <Link to='/'>EtherNote</Link>
         <ul className='nav_links'>
           <li>
-            <a href='#'>Sass</a>
-          </li>
-          <li>
-            <a href='#'>Com</a>
-          </li>
-          <li>
-            <a href='#'>JS</a>
+            <NavLink to='/favorites'>Favorites</NavLink>
           </li>
         </ul>
       </div>
