@@ -1,4 +1,4 @@
-import { deleteNote } from '../../store/actions/noteAction';
+import { deleteNote, toggleFav } from '../../store/actions/noteAction';
 import { useDispatch } from 'react-redux';
 
 const Note = ({ note }) => {
@@ -6,10 +6,13 @@ const Note = ({ note }) => {
   const deleteNoteHandler = () => {
     dispatch(deleteNote(note));
   };
+  const toggleFavoriteHandler = () => {
+    dispatch(toggleFav(note));
+  };
   return (
     <div className='singlenote'>
       <div className='singlenote__right'>
-        <i className='fas fa-heart'></i>
+        <i className='fas fa-heart' onClick={toggleFavoriteHandler}></i>
         <i
           className='fas fa-trash-alt delete-icon'
           onClick={deleteNoteHandler}
