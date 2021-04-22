@@ -9,10 +9,16 @@ const Note = ({ note }) => {
   const toggleFavoriteHandler = () => {
     dispatch(toggleFav(note));
   };
+
   return (
     <div className='singlenote'>
       <div className='singlenote__right'>
-        <i className='fas fa-heart' onClick={toggleFavoriteHandler}></i>
+        <i
+          className={
+            note.favorite ? 'fas fa-heart fullheart' : 'far fa-heart emptyheart'
+          }
+          onClick={toggleFavoriteHandler}
+        ></i>
         <i
           className='fas fa-trash-alt delete-icon'
           onClick={deleteNoteHandler}
