@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# EtherNote - A Note Taking App
+
+A note taking app built using React, Redux, Firebase, Firestore.
+
+Deployed live at : https://ethernote-eae66.web.app
+
+![](SitePreview.jpg)
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
