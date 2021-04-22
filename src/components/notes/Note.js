@@ -33,7 +33,9 @@ const Note = ({ note }) => {
       <p>{note.content}</p>
       <h6>{moment(note.createdAt.toDate()).fromNow()}</h6>
       <div className='singlenote__right'>
-        <i className='fas fa-pen'></i>
+        <Link to={`/editform/${note.id}}`}>
+          <i className='fas fa-pen'></i>
+        </Link>
       </div>
     </div>
   );
