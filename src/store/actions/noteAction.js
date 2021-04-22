@@ -51,3 +51,24 @@ export const toggleFav = note => {
       });
   };
 };
+
+export const updateNote = note => {
+  return (dispatch, getState, { getFirestore }) => {
+    // make async call to database
+    console.log('note in updatenote action', note);
+    const firestore = getFirestore();
+    firestore
+      .collection('notes')
+      .doc(note.id)
+      .update({
+        title: note.title,
+        content: note.content,
+      })
+      .then(() => {
+        console.log('update success');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+};

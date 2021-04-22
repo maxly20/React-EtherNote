@@ -11,6 +11,10 @@ const Note = ({ note }) => {
   const toggleFavoriteHandler = () => {
     dispatch(toggleFav(note));
   };
+  const editNoteHandler = () => {
+    console.log('edit note handler');
+    dispatch({ type: 'EDIT_NOTE', payload: note });
+  };
 
   return (
     <div className='singlenote'>
@@ -34,7 +38,7 @@ const Note = ({ note }) => {
       <h6>{moment(note.createdAt.toDate()).fromNow()}</h6>
       <div className='singlenote__right'>
         <Link to={`/editform/${note.id}}`}>
-          <i className='fas fa-pen'></i>
+          <i className='fas fa-pen' onClick={editNoteHandler}></i>
         </Link>
       </div>
     </div>
