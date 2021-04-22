@@ -1,5 +1,6 @@
 import { deleteNote, toggleFav } from '../../store/actions/noteAction';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 const Note = ({ note }) => {
@@ -25,7 +26,10 @@ const Note = ({ note }) => {
           onClick={deleteNoteHandler}
         ></i>
       </div>
-      <h5>{note.title}</h5>
+      <Link to={'/note/' + note.id}>
+        <h5>{note.title}</h5>
+      </Link>
+
       <p>{note.content}</p>
       <h6>{moment(note.createdAt.toDate()).fromNow()}</h6>
       <div className='singlenote__right'>
