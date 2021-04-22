@@ -19,7 +19,24 @@ const EditForm = props => {
     resetContent();
     history.push('/');
   };
-  return <div></div>;
+  return (
+    <div className='form-section'>
+      <form onSubmit={handleSubmit} className='main-form'>
+        <h5>New Note</h5>
+        <div className='input-field'>
+          <label htmlFor='note_title'>Note Title</label>
+          <input type='text' id='note_title' {...bindTitle} />
+        </div>
+        <div className='input-field'>
+          <label htmlFor='note_content'>Note Content</label>
+          <textarea name='' id='note_content' {...bindContent}></textarea>
+        </div>
+        <button className='btn' onClick={handleSubmit}>
+          Update
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default EditForm;
