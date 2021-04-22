@@ -8,17 +8,26 @@ const NoteDetail = props => {
   const note = useSelector(
     ({ firestore: { data } }) => data.notes && data.notes[id]
   );
-  return (
+
+  const noteMarkup = !isLoaded(note) ? (
+    <div className='note__loading'>
+      <h3>Loading...</h3>
+    </div>
+  ) : isEmpty(note) ? (
+    <div className='note__loading'>
+      <h3>There is no Note</h3>
+    </div>
+  ) : (
     <div className='detail__container'>
-      <article className='card'>
-        <div className='card__content'>
-          <span className='card__title'>{note?.title}</span>
-          <p className='card__note-content'>{note?.content}</p>
-          <div>{moment(note?.createdAt.toDate()).calendar()}</div>
-        </div>
+      <article className='detail__card'>
+        <span className='card__title'>{note.title}</span>
+        <p className='card__content'>{note?.content}</p>
+        <div className='card__time'><p>{moment(note.createdAt.toDate()).calendar()}</p></div>
       </article>
     </div>
   );
+
+  return noteMarkup;
 };
 
 export default NoteDetail;
